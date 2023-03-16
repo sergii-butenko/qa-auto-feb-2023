@@ -2,7 +2,6 @@ import os
 
 from src.config.providers.config_from_env_provider import ConfigFromEnvProvider
 from src.config.providers.config_from_json_provider import ConfigFromSimpleJsonProvider
-from src.config.providers.config_aws_provider import ConfigAWSProvider
 
 
 class Config:
@@ -20,7 +19,6 @@ class Config:
         # Hierarhy of providers
         self.providers = [
             ConfigFromSimpleJsonProvider(json_path),
-            ConfigAWSProvider(),
             ConfigFromEnvProvider(),
             ]
 
