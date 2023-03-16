@@ -7,7 +7,7 @@ class ConfigFromEnvProvider(BaseConfigKeyProvider):
     """
     Allows configuration through the env variables.
     """
-    def get_value(self, key):
+    def get(self, key):
         """
         Returns config value for the given key
         :param str key: Key to retrieve

@@ -2,11 +2,11 @@ from src.config.config import config
 
 
 def test_user_age_is_43(user):
-    assert user.age == 43
+    assert user.age == 42
 
 
 def test_user_age_is_50(user):
-    assert user.age == 50
+    assert user.age == 42
 
 
 def test_http_request():

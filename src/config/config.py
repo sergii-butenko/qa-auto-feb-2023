@@ -31,7 +31,7 @@ class Config:
         in tests
         """
 
-        # Order in self.provider makes difference 
+        # Order in self.provider makes difference
         for provider in self.providers:
             val = provider.get(name)
 
