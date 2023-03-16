@@ -9,4 +9,3 @@ class BaseConfigKeyProvider:
         :param str key: Key to retrieve
         """
         raise NotImplementedError("Not implemented")
-

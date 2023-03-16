@@ -2,14 +2,14 @@ import os
 from src.config.providers.base_config import BaseConfigKeyProvider
 
 
+# BaseConfigKeyProvider usage is optional
 class ConfigFromEnvProvider(BaseConfigKeyProvider):
     """
     Allows configuration through the env variables.
     """
-    def get(self, key):
+    def get_value(self, key):
         """
         Returns config value for the given key
         :param str key: Key to retrieve
         """
-        val = os.environ.get(key)
-        return val
+        return os.environ.get(key)

@@ -2,6 +2,7 @@ import os
 
 from src.config.providers.config_from_env_provider import ConfigFromEnvProvider
 from src.config.providers.config_from_json_provider import ConfigFromSimpleJsonProvider
+from src.config.providers.config_aws_provider import ConfigAWSProvider
 
 
 class Config:
@@ -16,12 +17,15 @@ class Config:
 
         json_path = f"src/config/env_configs/{target}.json"
 
+        # Hierarhy of providers
         self.providers = [
             ConfigFromSimpleJsonProvider(json_path),
+            ConfigAWSProvider(),
             ConfigFromEnvProvider(),
             ]
 
-        self.register("BASE_URL")
+        self.register("BASE_URL_API")
+        self.register("BASE_URL_UI")
 
     def register(self, name):
         """
@@ -37,16 +41,21 @@ class Config:
                 self.conf_dict[name] = val
 
         # raise error if no value is found across the providers
-        if self.conf_dict[name] is None:    
+        val = self.conf_dict.get(name)
+        if val is None:    
             raise Exception(f"{name} variable is not set in config")
 
-        print(f"{name} variable is registered in config with value {self.conf_dict[name]}")
+        print(f"{name} variable is registered in config with value {val}")
 
     def get(self, name):
         """
         Return existing value
         """
-        return self.conf_dict[name]
+        val = self.conf_dict.get(name)
+        if val is None:    
+            raise Exception(f"{name} variable is not set in config")
+
+        return self.conf_dict.get(name)
 
 
 # python way singleton
