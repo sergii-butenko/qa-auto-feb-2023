@@ -20,4 +20,5 @@ class ConfigFromSimpleJsonProvider(BaseConfigKeyProvider):
         :param str key: Key to retrieve
         """
         val = self._config_data.get(key)
+
         return val

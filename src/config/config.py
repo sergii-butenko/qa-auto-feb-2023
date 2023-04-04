@@ -24,6 +24,8 @@ class Config:
 
         self.register("BASE_URL_API")
         self.register("BASE_URL_UI")
+        self.register("USERNAME")
+        self.register("PASSWORD")
 
     def register(self, name):
         """
