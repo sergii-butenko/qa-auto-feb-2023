@@ -11,13 +11,16 @@ class GitHubApiClient:
         r = requests.get(
             url=self._form_url("/search/repositories"),
             params={'q': repo_name},
-            # headers=f"Authorization: Bearer {self.token}"
+            headers={"Authorization": f"Bearer {self.token}"}
             )
 
         return r.json()
 
     def login(self, username, password):
         print(f"Do login with {username}:{password}")
+        #
+        # DO LOGIN REQUEST
+        #
         self.token = "sdkfjbkjsdf"
 
     def logout(self):
