@@ -59,4 +59,4 @@ class Config:
 
 
 # python way singleton
-config = Config()
+CONFIG = Config()

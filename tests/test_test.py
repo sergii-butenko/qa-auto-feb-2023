@@ -1,4 +1,4 @@
-from src.config.config import config
+from src.config.config import CONFIG
 
 
 def test_user_age_is_43(user):
@@ -10,8 +10,8 @@ def test_user_age_is_50(user):
 
 
 def test_http_request():
-    print(config.get("BASE_URL_API"))
+    print(CONFIG.get("BASE_URL_API"))
 
 
 def test_ui_POM():
-    print(config.get("BASE_URL_UI"))
+    print(CONFIG.get("BASE_URL_UI"))

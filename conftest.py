@@ -1,7 +1,10 @@
 import pytest
 
 from src.applications.api.github_api_client import GitHubApiClient
-from src.config.config import config
+from src.config.config import CONFIG
+from src.applications.ui.github_ui_app import GitHubUI
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 
 class User:
@@ -31,8 +34,21 @@ def user():
 @pytest.fixture
 def github_api_client():
     github_api_client = GitHubApiClient()
-    github_api_client.login(config.get("USERNAME"), config.get("PASSWORD"))
+    github_api_client.login(CONFIG.get("USERNAME"), CONFIG.get("PASSWORD"))
 
     yield github_api_client
 
     github_api_client.logout()
+
+
+@pytest.fixture
+def GitHub_UI_App():
+    driver = webdriver.Chrome(
+        service=Service(r"./web_drivers/chrome/chromedriver_110")
+    )
+
+    ui_app = GitHubUI(driver)
+
+    yield ui_app
+
+    ui_app.close()

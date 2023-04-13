@@ -1,19 +1,16 @@
+from src.config.config import CONFIG
+from src.applications.ui.page_objects.login_page import LoginPage
+
+
 class GitHubUI:
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, driver) -> None:
+        self.LoginPage = LoginPage(driver)
+        self.SingupPage = None
 
-    def launch(self):
-        pass
+    def open(self):
+        self.driver.get(CONFIG.get("BASE_URL_UI"))
+        return self
 
     def close(self):
-        pass
-
-    def go_to_login_page(self):
-        pass
-
-    def try_login_on_login_page(self):
-        pass
-
-    def check_error_message(self):
-        pass
+        self.driver.close()
