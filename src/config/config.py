@@ -2,6 +2,7 @@ import os
 
 from src.config.providers.config_from_env_provider import ConfigFromEnvProvider
 from src.config.providers.config_from_json_provider import ConfigFromSimpleJsonProvider
+from src.config.providers.config_from_defults_provider import ConfigFromDefaultsProvider
 
 
 class Config:
@@ -20,6 +21,11 @@ class Config:
         self.providers = [
             ConfigFromSimpleJsonProvider(json_path),
             ConfigFromEnvProvider(),
+            ConfigFromDefaultsProvider({
+                "DEBUG_MODE": True,
+                "BROWSER": 'chrome',
+                "UI_TIMEOUTS": 30000,
+            })
             ]
 
         self.register("BASE_URL_API")
@@ -28,6 +34,7 @@ class Config:
         self.register("PASSWORD")
         self.register("BROWSER")
         self.register("DEBUG_MODE")
+        self.register("UI_TIMEOUTS")
 
     def register(self, name):
         """

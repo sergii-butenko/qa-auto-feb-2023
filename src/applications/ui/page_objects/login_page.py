@@ -11,7 +11,7 @@ class LoginPage:
     SIGN_IN_BTN = "commit" #name
 
     def __init__(self, app) -> None:
-        self.driver = self.app.driver
+        self.app = app
 
     def go_to(self):
         self.app.driver.get(CONFIG.get("BASE_URL_UI") + LoginPage.URL)
