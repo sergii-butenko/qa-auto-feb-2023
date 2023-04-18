@@ -14,6 +14,9 @@ class GitHubApiClient:
             headers={"Authorization": f"Bearer {self.token}"}
             )
 
+        if CONFIG.get("DEBUG_MODE"):
+            print(r)
+
         return r.json()
 
     def login(self, username, password):

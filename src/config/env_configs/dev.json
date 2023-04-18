@@ -3,5 +3,6 @@
     "BASE_URL_UI": "https://github.com/",
     "USERNAME": "kjsdnfkjndsf",
     "PASSWORD": "kjsndkjfnkjsnfk",
-    "BROWSER": "ff"
+    "BROWSER": "chrome",
+    "DEBUG_MODE": false
 }

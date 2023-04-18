@@ -3,7 +3,7 @@ import pytest
 from src.applications.api.github_api_client import GitHubApiClient
 from src.config.config import CONFIG
 from src.applications.ui.github_ui_app import GitHubUI
-from src.providers.service.browsers_provider import BrowsersProvider
+from src.providers.service.browsers.browsers_provider import BrowsersProvider
 
 
 class User:

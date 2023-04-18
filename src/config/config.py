@@ -27,6 +27,7 @@ class Config:
         self.register("USERNAME")
         self.register("PASSWORD")
         self.register("BROWSER")
+        self.register("DEBUG_MODE")
 
     def register(self, name):
         """
