@@ -10,29 +10,31 @@ class LoginPage:
     PASSWROD_FLD = "password" #id
     SIGN_IN_BTN = "commit" #name
 
-    def __init__(self, driver) -> None:
-        self.driver = driver
+    def __init__(self, app) -> None:
+        self.driver = self.app.driver
 
     def go_to(self):
-        self.driver.get(CONFIG.get("BASE_URL_UI") + LoginPage.URL)
+        self.app.driver.get(CONFIG.get("BASE_URL_UI") + LoginPage.URL)
 
     def try_sign_in(self, username, password):
-        username_fld = self.driver.find_element(By.ID, LoginPage.USERNAME_FLD)
+        username_fld = self.app.driver.find_element(By.ID, LoginPage.USERNAME_FLD)
         username_fld.send_keys(username)
 
-        password_fld = self.driver.find_element(By.ID, LoginPage.PASSWROD_FLD)
+        password_fld = self.app.driver.find_element(By.ID, LoginPage.PASSWROD_FLD)
         password_fld.send_keys(password)
 
-        sign_in_btn = self.driver.find_element(By.NAME, LoginPage.SIGN_IN_BTN)
+        sign_in_btn = self.app.driver.find_element(By.NAME, LoginPage.SIGN_IN_BTN)
         sign_in_btn.click()
 
         time.sleep(5)
 
         return self
 
-    def go_to_sign_up_page(self):
-        # return any
-        pass
+    def click_sign_up_page(self):
+        sing_up_page = self.app.SignUpPage(self.app)
+        sing_up_page.wait_loaded()
+
+        return sing_up_page
 
     def go_to_forgot_pass_page(self):
         # return any

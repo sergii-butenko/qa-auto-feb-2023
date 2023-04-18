@@ -41,7 +41,7 @@ def github_api_client():
 
 
 @pytest.fixture
-def GitHub_UI_App():
+def github_ui_app():
     browser = CONFIG.get("BROWSER")
     driver = BrowsersProvider.get_driver(browser)
 
