@@ -5,6 +5,7 @@ from src.applications.ui.page_objects.login_page import LoginPage
 class GitHubUI:
 
     def __init__(self, driver) -> None:
+        self.driver = driver
         self.LoginPage = LoginPage(driver)
         self.SingupPage = None
 

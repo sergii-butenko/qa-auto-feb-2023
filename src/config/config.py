@@ -26,6 +26,7 @@ class Config:
         self.register("BASE_URL_UI")
         self.register("USERNAME")
         self.register("PASSWORD")
+        self.register("BROWSER")
 
     def register(self, name):
         """
