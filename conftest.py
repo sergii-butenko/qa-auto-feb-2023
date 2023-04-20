@@ -45,6 +45,7 @@ def github_ui_app():
     browser = CONFIG.get("BROWSER")
     driver = BrowsersProvider.get_driver(browser)
 
+
     ui_app = GitHubUI(driver)
 
     yield ui_app

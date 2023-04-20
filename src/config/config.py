@@ -24,7 +24,7 @@ class Config:
             ConfigFromDefaultsProvider({
                 "DEBUG_MODE": True,
                 "BROWSER": 'chrome',
-                "UI_TIMEOUTS": 30000,
+                "UI_TIMEOUTS": 30,
             })
             ]
 
