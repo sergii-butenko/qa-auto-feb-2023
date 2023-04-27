@@ -19,13 +19,14 @@ class Config:
 
         # Hierarhy of providers
         self.providers = [
-            ConfigFromSimpleJsonProvider(json_path),
-            ConfigFromEnvProvider(),
             ConfigFromDefaultsProvider({
                 "DEBUG_MODE": True,
                 "BROWSER": 'chrome',
                 "UI_TIMEOUTS": 30,
-            })
+                "SELENIUM_GRID_URL": 'http://0.0.0.0:4444/wd/hub'
+            }),
+            ConfigFromSimpleJsonProvider(json_path),
+            ConfigFromEnvProvider(),
             ]
 
         self.register("BASE_URL_API")
@@ -35,6 +36,7 @@ class Config:
         self.register("BROWSER")
         self.register("DEBUG_MODE")
         self.register("UI_TIMEOUTS")
+        self.register("SELENIUM_GRID_URL")
 
     def register(self, name):
         """
